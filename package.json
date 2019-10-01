@@ -1,0 +1,18 @@
+{
+  "name": "frogs-game",
+  "version": "0.0.1",
+  "description": "macbook touch bar game",
+  "main": "index.js",
+  "repository": "https://github.com/jonny22094/TouchBar-frogs-game.git",
+  "author": "Jan Rochalski <joonny220@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^6.0.10"
+  },
+  "scripts": {
+    "start": "./node_modules/.bin/electron index.js"
+  },
+  "devDependencies": {
+    "eslint": "^6.5.1"
+  }
+}
