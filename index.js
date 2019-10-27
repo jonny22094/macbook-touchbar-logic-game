@@ -5,19 +5,6 @@ let isStart = true;
 let map = [0, 0, 0, 2, 1, 1, 1];
 const values = ['👻', '👽'];
 
-const buttons = map.map((value, idx) => new TouchBarButton({
-  label: values[value],
-  click: () => {
-    if (isStart) {
-      logic(idx);
-      update();
-      check();
-    } else if (idx === 3) {
-      restart();
-    }
-  }
-}));
-
 const logic = (idx) => {
   const a = map[idx] ? -1 : 1;
   const b = map[idx] ? -2 : 2;
@@ -38,7 +25,7 @@ const check = () => {
     && map[6] === map[5] && map[5] === map[4] && map[4] === 0) {
     isStart = false;
 
-    const caption = ['Y', 'O', 'U' , '🔄', 'W', 'I', 'N'];
+    const caption = ['Y', 'O', 'U' , '', 'W', 'I', 'N'];
 
     buttons.map((button, idx) => {
       button.label = caption[idx];
@@ -63,8 +50,26 @@ const update = () => {
   });
 };
 
+const buttons = map.map((value, idx) => new TouchBarButton({
+  label: values[value],
+  click: () => {
+    if (isStart) {
+      logic(idx);
+      update();
+      check();
+    } else if (idx === 3) {
+      restart();
+    }
+  }
+}));
+
+const restartButton = new TouchBarButton({
+  label: '🔄',
+  click: restart
+});
+
 const touchBar = new TouchBar({
-  items: buttons,
+  items: [...buttons, restartButton],
 });
 
 let window;
