@@ -7,7 +7,7 @@
   "author": "Jan Rochalski <joonny220@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "electron": "^6.0.10"
+    "electron": "^7.2.4"
   },
   "scripts": {
     "start": "./node_modules/.bin/electron index.js"
